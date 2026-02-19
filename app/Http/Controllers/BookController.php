@@ -32,7 +32,7 @@ class BookController extends Controller
     {
         Book::create($request->all());
 
-        return redirect()->route("book.index")->with("msg", "Book was created successfully.");
+        return redirect()->route("books.index")->with("msg", "Book was created successfully.");
     }
 
     /**
