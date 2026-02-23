@@ -40,7 +40,7 @@ class BookController extends Controller
      */
     public function show(Book $book)
     {
-        //
+        return view("books.show", ["book" => $book]);
     }
 
     /**
@@ -48,7 +48,7 @@ class BookController extends Controller
      */
     public function edit(Book $book)
     {
-        //
+        return view("books.edit", ["book" => $book]);
     }
 
     /**
@@ -56,7 +56,10 @@ class BookController extends Controller
      */
     public function update(UpdateBookRequest $request, Book $book)
     {
-        //
+        $oldTitle = $book->title;
+        $book->update($request->all());
+
+        return redirect()->route("books.index")->with("msg", "{$oldTitle} was updated successfuly");
     }
 
     /**
@@ -64,6 +67,17 @@ class BookController extends Controller
      */
     public function destroy(Book $book)
     {
-        //
+        $book->delete();
+        return redirect()->route("books.index")->with("msg", "{$book->title} was deleted successfuly");
+    }
+
+    public function trashed(){
+        $books = Book::onlyTrashed()->get();
+        return view("books.index", ["books" => $books]);
+    }
+
+    public function restore(Book $book){
+        $book->restore();
+        return redirect()->route("books.index")->with("msg", "{$book->title} was restored successfuly");
     }
 }

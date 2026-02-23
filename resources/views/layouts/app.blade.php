@@ -13,7 +13,7 @@
     <hr>
     <a href="{{ route("books.index") }}">List all books</a>
     <a href="{{ route("books.create") }}">Create new book</a>
-    <a href="">Show deleted books</a>
+    <a href="{{ route("books.trashed") }}">Show deleted books</a>
 
     <div class="container">
         @yield('content')

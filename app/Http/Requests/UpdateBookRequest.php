@@ -11,7 +11,7 @@ class UpdateBookRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,17 @@ class UpdateBookRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            "title" => ["required", "string", "unique:books,title,{$this->book->id}"],
+            "price" => ["required", "numeric"],
+            "year" => ["required", "min:0", "integer"],
+            "limited" => ["boolean"],
+            "author" => ["required", "string"]
+        ];
+    }
+
+    public function messages() {
+        return [
+            "title.required" => "Egy konyv cim nelkul nem johet letre."
         ];
     }
 }

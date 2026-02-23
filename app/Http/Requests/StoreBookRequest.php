@@ -25,7 +25,7 @@ class StoreBookRequest extends FormRequest
             "title" => ["required", "string", "unique:books,title"],
             "price" => ["required", "numeric"],
             "year" => ["required", "min:0", "integer"],
-            //"limited" => ["boolean"],
+            "limited" => ["boolean"],
             "author" => ["required", "string"]
         ];
     }
