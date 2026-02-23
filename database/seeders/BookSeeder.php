@@ -15,11 +15,12 @@ class BookSeeder extends Seeder
     public function run(): void
     {
         Book::create([
-            "title" => "The Lord Of The Rings",
+            "title" => "The Lord Of The Rings - The Fellowship of the Ring",
             "price" => 19.99,
             "year" => 1954,
             "limited" => false,
-            "author" => "J.R.R.Tolkien"
+            "author" => "J.R.R.Tolkien",
+            "type_id" => 1
         ]);
 
         Book::factory(10)->create();
@@ -36,7 +37,8 @@ class BookSeeder extends Seeder
                 "limited" => false,
                 "author" => "J.R.R.Tolkien",
                 "created_at" => now(),
-                "updated_at" => now()
+                "updated_at" => now(),
+                "type_id" => 1
             ],
             [
                 "title" => "The Lord Of The Rings - The Return of the King",
@@ -45,7 +47,8 @@ class BookSeeder extends Seeder
                 "limited" => false,
                 "author" => "J.R.R.Tolkien",
                 "created_at" => now(),
-                "updated_at" => now()
+                "updated_at" => now(),
+                "type_id" => 1
             ],
         ]);
 
@@ -57,7 +60,8 @@ class BookSeeder extends Seeder
                 "limited" => false,
                 "author" => "J.K.Rowling",
                 "created_at" => now(),
-                "updated_at" => now()
+                "updated_at" => now(),
+                "type_id" => 1
             ]
         ]);
     }

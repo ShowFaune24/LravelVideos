@@ -21,7 +21,8 @@ class BookFactory extends Factory
             "price" => fake()->randomFloat(2, 5, 9999),
             "year" => fake()->year(),
             "limited" => fake()->boolean(30),
-            "author" => fake()->name()
+            "author" => fake()->name(),
+            "type_id" =>fake()->numberBetween(1,5)
         ];
     }
 }
