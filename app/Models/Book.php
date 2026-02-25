@@ -19,4 +19,14 @@ class Book extends Model
         "year",
         "limited"
     ];
+
+    /*Relations */
+
+    public function type() {
+        return $this->belongsTo(Type::class);
+    }
+
+    public function users(){
+        return $this->belongsToMany(User::class);
+    }
 }

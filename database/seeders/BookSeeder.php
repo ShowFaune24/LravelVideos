@@ -14,6 +14,7 @@ class BookSeeder extends Seeder
      */
     public function run(): void
     {
+        
         Book::create([
             "title" => "The Lord Of The Rings - The Fellowship of the Ring",
             "price" => 19.99,
@@ -28,7 +29,7 @@ class BookSeeder extends Seeder
         Book::factory(5)->create([
             "limited" => true
         ]);
-
+        
         Book::insert([
             [
                 "title" => "The Lord Of The Rings - The Two Towers",
