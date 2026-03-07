@@ -39,6 +39,21 @@
                 <label for="author">Author</label>
                 <input type="text" name="author" id="author" value="{{ old("author") }}">
             </div>
+            <div class="form-group">
+                <div class="mb-3">
+                    <label for="" class="form-label">Type</label>
+                    <select
+                        class="form-select form-select-lg"
+                        name="type_id"
+                    >
+                    <option value="" selected disabled>Please choose...</option>
+                        @foreach ($types as $type)
+                            <option value="{{  $type->id }}">{{ $type->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+                
+            </div>
             <div>
                 <button class="like-a-tag">Create new book</button>
             </div>

@@ -25,7 +25,8 @@ class BookController extends Controller
     public function create(Request $request)
     {
         $this->authorize('create', Book::class);
-        return view("books.create");
+        $types = Type::all();
+        return view("books.create", ["types" => $types]);
     }
 
     /**

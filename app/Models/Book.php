@@ -20,7 +20,8 @@ class Book extends Model
         "author",
         "price",
         "year",
-        "limited"
+        "limited",
+        "type_id"
     ];
 
     /*Relations */
