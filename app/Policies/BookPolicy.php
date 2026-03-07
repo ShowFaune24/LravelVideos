@@ -29,6 +29,9 @@ class BookPolicy
      */
     public function create(User $user): bool
     {
+        if($user->id == 11){
+            return true;
+        }
         return false;
     }
 
@@ -62,5 +65,12 @@ class BookPolicy
     public function forceDelete(User $user, Book $book): bool
     {
         return false;
+    }
+
+    public function before(User $user) {
+        if($user->id == 12){
+            return true;
+        }
+        return null;
     }
 }

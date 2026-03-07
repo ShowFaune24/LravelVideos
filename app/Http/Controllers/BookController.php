@@ -6,6 +6,7 @@ use App\Models\Book;
 use App\Http\Requests\StoreBookRequest;
 use App\Http\Requests\UpdateBookRequest;
 use App\Models\Type;
+use Illuminate\Http\Request;
 
 class BookController extends Controller
 {
@@ -21,8 +22,9 @@ class BookController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Request $request)
     {
+        $this->authorize('create', Book::class);
         return view("books.create");
     }
 

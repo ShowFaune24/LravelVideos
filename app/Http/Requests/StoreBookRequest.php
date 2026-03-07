@@ -2,7 +2,9 @@
 
 namespace App\Http\Requests;
 
+use App\Models\Book;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Auth;
 
 class StoreBookRequest extends FormRequest
 {
@@ -11,7 +13,11 @@ class StoreBookRequest extends FormRequest
      */
     public function authorize(): bool
     {
+     if(Auth::check() && Auth::user()->can('create',
+     Book::class)){
         return true;
+     }   
+        return false;
     }
 
     /**
